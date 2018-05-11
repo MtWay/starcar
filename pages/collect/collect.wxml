@@ -1,0 +1,47 @@
+<view class='wrap'>
+<view class='noCar' wx:if="{{noCar}}">
+  暂无收藏记录
+</view>
+  <view class='listBox'>
+    <view wx:for="{{list}}" wx:key="{{index}}" data-index="{{index}}">
+    <view class='date' wx:if="{{item.browseDate!=list[index-1].browseDate}}">{{item.browseDate}}</view>
+    <view class="list" data-index="{{index}}" bindtap='changeSelect' id ="{{item.id}}">
+      <view class='left {{item.select?"select":""}} {{edit?"":"lefts"}}'>
+        <image src='../../images/select-r.png'></image>
+      </view>
+      <image src='http://img.hx2cars.com/upload{{item.img}}' class='carimg'></image>
+      <view class="right">
+        <view class='title'>
+          {{item.title}}
+        </view>
+        <view class='klm'>
+          {{item.spDate}}上牌 {{item.kilometer}}万公里
+        </view>
+        <view class='moneyBox'>
+          <view class='money'>
+            {{item.money}}万
+          </view>
+          <!--catchtap阻止冒泡  -->
+          <view class='heart' catchtap='collectChange' data-index="{{index}}">
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+  <!-- 底部按钮 -->
+  <view class='bottom'>
+    <view class='allselect' bindtap='allselect' wx:if="{{edit}}">
+      <view class='left {{allselect?"select":""}}'>
+        <image src='../../images/select-r.png'></image>
+      </view>
+        全选
+    </view>
+    <view class='del' bindtap='del' wx:if="{{edit}}">删 除{{delNum?"("+delNum+")":""}}</view>
+    <view class='edit' bindtap='edit' wx:if="{{!edit}}">编辑</view>
+    <view class='cancel' wx:if="{{edit}}" wx:if="{{edit}}" bindtap='cancel'>取消</view>
+  </view>
+
+</view>
+
+  <view class='msgs' wx:if="{{showmsg}}" bind:animationend="msgAnimationend">{{msg}}</view>

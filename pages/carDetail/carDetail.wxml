@@ -1,0 +1,186 @@
+<view class = "loop">
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="http://img.hx2cars.com/upload{{item}}" class="slide-image" data-src = "{{item}}" bindtap='showImg' mode="widthFix"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+  <!-- <image src='http://img.hx2cars.com/upload/newimg2/M07/37/56/Clo8xFm4-q6ABZoPAAZ5RuIVzOE717_small_400_300.jpg'></image> -->
+</view>
+<view class='bf'>
+<view class='carTitle'>
+  <view class='self'>[自营]</view>
+   {{carData.title}}
+</view>
+
+<view class='priceWrap'>
+  <view class='price'>
+    <view class='red'>
+      {{carData.price? carData.price+"万" :"面议"}}
+      <view class='gray'>（含过户费）</view>
+    </view>
+    <view class='del' wx:if="{{carData.listPrice}}">厂商指导价：{{carData.listPrice}}</view>
+  </view>
+  <view class='sale' bindtap='showSaleModel'>
+    <image src='../../images/icon-sale.png'/>
+    降价通知
+  </view>
+  <!-- <view class='btn-yj'>分销赚佣金</view> -->
+</view>
+</view>
+
+<view class='vipWrap '>
+  <view class='vipBox rightArrow' bindtap='tofinancial'>
+    <image src='../../images/yuan.png' class='yuan'></image>
+    <view class='title'>
+      金融服务
+    </view>
+    <view class='msg' wx:if="carData.price">
+      首付{{shoufu}}万，月付{{yuefu}}万
+    </view>
+  </view>
+</view>
+
+<view class='section bf'>
+  <view class='sectionTop'>
+    <view class='title'>第一站质量保证</view>
+    <view class='right cff7f7f'>7天无理由退换</view>
+  </view>
+  <view class='serveWrap'>
+    <view class='serve'>
+      <view class='icon'><image src='../../images/serve1.png' /></view>
+      <view class='msg'>维修记录</view>
+    </view>
+    <view class='serve center'>
+      <view class='icon'><image src='../../images/serve2.png' /></view>
+      <view class='msg'>第一站专业检测</view>
+    </view>
+    <view class='serve'>
+      <view class='icon'><image src='../../images/serve3.png' /></view>
+      <view class='msg'>保险记录</view>
+    </view>
+  </view>
+  <view class='btn-zx' bindtap='consult'>
+  <image src='../../images/icon-rp.png' />
+  车况咨询</view>
+</view>
+
+<view class='section bf'>
+  <view class='sectionTop'>
+    <view class='title'>
+      车辆信息
+    </view>
+    <view class='right c999 rightArrow' bindtap='showDetail'>
+      详细信息
+    </view>
+  </view>
+  <view class='infoWrap'>
+
+  <view class='info' wx:for='{{message}}' wx:key='{{index}}'>
+     <view class='value'>
+        {{item.value || "未知"}}
+      </view>
+      <view class='hint'>
+        {{item.hint}}
+      </view>
+  </view>
+    
+  </view>
+</view>
+
+  <view class='bottom'>
+    <view class='btn call collect' bindtap='changeCollect'>
+      <view class='callBox'>
+      <image src='../../images/icon-collects.png' wx:if="{{isCollect}}"/>
+      <image src='../../images/icon-collect.png' wx:else/>
+      {{isCollect?"已收藏":"收藏"}}
+    </view>
+    </view>
+    <view class='btn call' id='13111111111' bindtap='consultTel'>
+      <view class='callBox'>
+      <image src='../../images/icon-phone.png'/>
+      电话咨询
+    </view>
+    </view>
+    <view class='btn bid' bindtap='showChujiaModel'>出价</view>
+    <view class='btn  bdc0000' bindtap='toappiont'>预约看车</view>
+  </view>
+
+  <view class='model-bg' wx:if="{{showbg}}" bindtap='hideModel'></view>
+
+<!--降价通知弹框-->
+  <view class='model-top {{saleModel ? "showmodel" :""}}'  wx:if="{{!token}}">
+    <view class='top'>
+      <view class='topc'>降价通知</view>
+      <view class='close' bindtap='hideModel'></view>
+    </view>
+    <view class='label'>
+      <input type='number' placeholder='请输入手机号' bindinput="testPhnoe" value='{{phone}}'  focus="{{saleFocus}}"></input>
+    </view>
+    <view class='error  {{phoneError?"":"vhide"}}'>
+      <view class='icon-error'>-</view>
+      手机号码输入有误
+    </view>
+      <view class='label'>
+      <input type='number' placeholder='请输入验证码' bindinput='testCode' value="{{code}}"></input>
+      <view class='btn' bindtap='getCode'>获取验证码</view>
+    </view>
+    <view class='error  {{codeError?"":"vhide"}}'>
+      <view class='icon-error'>-</view>
+      验证码输入有误
+    </view>
+    <view class='sub' bindtap='saleSub'>降价时立即通知我</view>
+  </view>
+
+  <!--出价弹框-->
+  <view class='model-top {{chujiaModel ? "showmodel" :""}}' >
+    <view class='top'>
+      <view class='topc'>出价</view>
+      <view class='close' bindtap='hideModel'></view>
+    </view>
+    <view class='label'>
+      <input type='digit' placeholder='请输入您的意向价格' bindinput="testChujia"  value='{{chujia}}'   focus="{{chujiaFocus}}"></input>
+      <view>万</view>
+    </view>
+    <view class='error  {{chujiaError?"":"vhide"}}'>
+      <view class='icon-error'>-</view>
+      请输入您的出价
+    </view>
+    <view class='label'   wx:if="{{!token}}">
+      <input type='number' placeholder='请输入手机号' bindinput="testPhnoe" value='{{phone}}'></input>
+    </view>
+    <view class='error  {{phoneError?"":"vhide"}}'>
+      <view class='icon-error'>-</view>
+      手机号码输入有误
+    </view>
+      
+      <view class='label'   wx:if="{{!token}}">
+      <input type='number' placeholder='请输入验证码' bindinput='testCode' value="{{code}}"></input>
+      <view class='btn' bindtap='getCode'>获取验证码</view>
+    </view>
+    <view class='error  {{codeError?"":"vhide"}}'>
+      <view class='icon-error'>-</view>
+      验证码输入有误
+    </view>
+    <view class='sub' bindtap='chujiaSub'>立即将出价通知卖方</view>
+  </view>
+
+  <view class='detailModel {{detailModelShow?"detailModelShow":""}}'>
+      <view class='title'>
+        <view class='leftArrow' bindtap='hideDetail'></view>
+        详细信息
+      </view>
+          
+          <view class='detailWrap'>
+            <view class='detailList' wx:for="{{details}}" wx:key="{{index}}">
+              <text>{{item.key}}</text>
+              <text>{{item.value || "未知"}}</text>
+            </view>
+          </view>
+    </view>
+
+  <!--提示消息  -->
+  <view class='msgs' wx:if="{{showmsg}}" bind:animationend="msgAnimationend">{{msg}}</view>

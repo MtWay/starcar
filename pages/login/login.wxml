@@ -1,0 +1,20 @@
+<!--pages/login/login.wxml-->
+<view class='from'>
+  <label>
+    <input type='number' placeholder='请输入手机号码' bindinput='phoneInput'></input>
+  </label>
+  <label wx:if="{{false}}">
+    <input type='number' placeholder='请输入图片验证码' bindinput='imgInput'></input>
+    <image src='{{codeUrl}}' bindtap='changeCode'></image>
+  </label>
+  <label>
+    <input type='number' placeholder='请输入手机验证码' bindinput='codeInput'></input>
+    <view class='btn' bindtap='getCode' wx:if="{{!loding}}">获取验证码</view>
+    <view class='btn {{loding?"gray":""}}' wx:else >重新获取 {{lodingNum}} 秒</view>
+  </label>
+  <view class='sub' bindtap='submit'>
+    登录
+  </view>
+</view>
+
+<view class='msg' wx:if="{{showmsg}}" bind:animationend="msgAnimationend">{{msg}}</view>

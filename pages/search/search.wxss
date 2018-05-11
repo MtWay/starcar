@@ -1,0 +1,132 @@
+
+.container{
+    flex: 1;
+    display: flex;
+    background-color: white;
+    flex-direction: column
+}
+
+/*头部搜索框*/
+.topStyle{
+    height:45px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+     flex-direction: row;
+     align-items: center;
+     display: flex
+}
+
+/*搜索框的图片*/
+.sousuoimg{
+    width: 13px;
+    height: 13px;
+    margin-left: 12px
+}
+
+.inputStyle{
+    border-radius: 12rpx;
+    border:  1px solid #f6f6f6;
+    background-color: #f6f6f6;
+    margin-left: 15px;
+    height: 28px;
+     display: flex;
+     flex: 1;
+     font-size: 12px;
+      align-items: center;
+      color: #999999
+}
+.input{
+    margin-left: 15px;
+    width: 100%
+}
+
+.cancelStyle{
+   width: 55px;
+   align-content: center;
+   justify-content: center;
+   display: flex;
+   color: #666666;
+   font-size: 13px;
+}
+
+/*搜索历史*/
+.historySearch{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column
+}
+
+.history{
+ display: flex;
+ flex-direction: row;
+ position: relative;
+ height:20px;
+ align-items: center
+}
+
+.delete{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+
+}
+
+/*热门搜索*/
+.hotSearch{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column
+}
+
+.hotsearchText{
+    color: #666666;
+    margin-left: 18px;
+    font-size: 12px;
+}
+
+.hotList{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+}
+
+
+.listItem{
+     border-radius: 8rpx;
+     border:  1px solid #f6f6f6;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+      flex: 1;
+      margin-left: 20px;
+     color: #999999;
+     font-size: 11px;
+      height: 25px;
+      line-height: 25px
+}
+
+.listItemnull{
+          display: flex;
+      flex: 1;
+      margin-left: 20px;
+       align-items: center;
+     justify-content: space-around;
+     color: #999999;
+     font-size: 11px;
+      height: 25px;
+}
+
+.paixuitem{
+    height: 37px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e1e1e1;
+    color: #333333;
+    font-size: 12px;
+    align-items: center;
+    display: flex;
+    padding-left: 15px
+}

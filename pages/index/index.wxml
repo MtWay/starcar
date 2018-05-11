@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view wx:if="{{!hide}}" class='bg'>
+<view class='box' bindtouchmove='stopPropation'>
+<view class='logo'>
+   <image  src='../../images/logo.png' mode='widthFix'></image>
+</view>
+<view class='banner'>
+   <image src='../../images/index.jpg' mode='widthFix' catchtouchmove='stopPropation'></image>
+</view>
+
+</view>
+<view class='btnBox'>
+  <view class='btn login' bindtap='tologin'>登录</view>
+  <view class='btn tolist' bindtap='tolist'>立即体验</view>
+</view></view>

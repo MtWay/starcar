@@ -1,0 +1,83 @@
+{
+  "code": 1,
+  "carList": [
+    {
+      "journey": 36.0,
+      "price": 36.0,
+      "photo": "/newimg1/M07/FD/8B/Clo8w1qg9-SAA6O8AAAj67IUjnI649.jpg",
+      "id": 307322,
+      "useYear": 2016,
+      "title": "比亚迪 E6  400精英版"
+    },
+    {
+      "journey": 23.0,
+      "price": 39.0,
+      "photo": "/newimg1/M07/D4/24/Clo8w1pfE4OALQ9hAAJkaQOkYgo284.jpg",
+      "id": 307034,
+      "useYear": 2017,
+      "title": "安驰 小公主  0.8 化油器"
+    },
+    {
+      "journey": 23.0,
+      "price": 33.0,
+      "photo": "/newimg2/M04/C9/40/Clo8xFpVgSKAHZRXAAIj_LtRoEI966.jpg",
+      "id": 306611,
+      "useYear": 2016,
+      "title": "奥迪 奥迪A2  A2 1.6 FSI"
+    },
+    {
+      "journey": 20.0,
+      "price": 59.0,
+      "photo": "/newimg1/M04/E1/C3/Clo8w1pv1vuALkMMAAJO9gtZHOI639.jpg",
+      "id": 307246,
+      "useYear": 2017,
+      "title": "奥迪 奥迪A1  A1 30TFSI Sportback 豪华型"
+    },
+    {
+      "journey": 44.0,
+      "price": 100.0,
+      "photo": "/newimg2/M05/25/77/Clo8xFmne26AdCC8AAGMXY-kV5Y054.jpg",
+      "id": 115721,
+      "useYear": 2015,
+      "title": "奥迪 奥迪80  Avant 2.6 "
+    },
+    {
+      "journey": 44.0,
+      "price": 25.0,
+      "photo": "/newimg2/M05/25/77/Clo8xFmne26AdCC8AAGMXY-kV5Y054.jpg",
+      "id": 115742,
+      "useYear": 2015,
+      "title": "奥迪 奥迪80  Avant 2.6 "
+    },
+    {
+      "journey": 44.0,
+      "price": 25.0,
+      "photo": "/newimg2/M05/25/77/Clo8xFmne26AdCC8AAGMXY-kV5Y054.jpg",
+      "id": 115744,
+      "useYear": 2015,
+      "title": "奥迪 奥迪80  Avant 2.6 "
+    },
+    {
+      "journey": 12.0,
+      "price": 34.0,
+      "id": 306499,
+      "useYear": 2015,
+      "title": "奥迪 奥迪80  Avant RS2 2.2T "
+    },
+    {
+      "journey": 23.0,
+      "price": 35.0,
+      "photo": "/newimg2/M03/A3/61/Clo8xFox7AaAG-AFAANeSmIzgvA296.jpg",
+      "id": 306504,
+      "useYear": 2015,
+      "title": "奥迪 奥迪80  Avant RS2 2.2T "
+    },
+    {
+      "journey": 11.0,
+      "price": 25.0,
+      "photo": "/newimg2/M04/A4/75/Clo8xFoyM-KAHrajAABGOPqRfBg760.jpg",
+      "id": 306524,
+      "title": "奥迪 奥迪80  Avant 2.8 "
+    }
+  ]
+}

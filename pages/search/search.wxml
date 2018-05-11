@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="topStyle">
+    <!--搜索框-->
+    <view class="inputStyle">
+      <image src="../../images/sousuo.png" class="sousuoimg" mode="aspectFill" />
+      <input placeholder="请输入品牌/车系/年份" class="input" bindinput="listenerInput" bindconfirm="confirmInput" />
+
+    </view>
+
+    <view class="cancelStyle" bindtap="cancel">
+      取消
+    </view>
+  </view>
+
+  <!--输入后实时获取的数据-->
+  <view wx:key="{{index}}" wx:for="{{searchList}}">
+    <view class="paixuitem" bindtap="ordeItemclick" id="{{item}}">
+      {{item}}
+    </view>
+  </view>
+
+  <view wx:if="{{searchList.length<=0}}">
+
+    <!--搜索历史-->
+    <view class="historySearch" wx:if="{{historySearchArr[0] !=''}}">
+      <view class="history">
+        <view class="hotsearchText">
+          搜索历史
+        </view>
+      </view>
+
+      <!--搜索历史1-->
+      <view class="hotList">
+        <view bindtap="historysearch" id="{{index}}" class="listItem" wx:key="{{index}}" wx:if="{{index <= 3 && item!=''}}" wx:for="{{historySearchArr}}">
+          {{item}}
+        </view>
+        <view class="listItemnull" wx:key="{{index}}" wx:if="{{index <= 3 && item==''}}" wx:for="{{historySearchArr}}">
+        </view>
+      </view>
+
+      <!--搜索历史2-->
+      <view class="hotList" hidden="{{historySearchArr[4] ==''}}">
+        <view class="listItem" bindtap="historysearch" id="{{index}}" wx:key="{{index}}" wx:if="{{index > 3 && item           !=''}}" wx:for="{{historySearchArr}}">
+          {{item}}
+        </view>
+        <view class="listItemnull" wx:key="{{index}}" wx:if="{{index > 3 && item==''}}" wx:for="{{historySearchArr}}">
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

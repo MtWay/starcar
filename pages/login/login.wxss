@@ -1,0 +1,84 @@
+/* pages/login/login.wxss */
+
+label{
+  margin:20rpx 40rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  display: block;
+  display: flex;
+  align-items: center;
+}
+
+input{
+  line-height: 90rpx;
+  font-size: 28rpx;
+  padding:10rpx 20rpx 20rpx;
+  flex: 1;
+}
+
+image{
+  width: 150rpx;
+  height: 50rpx;
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+}
+
+.btn{
+  font-size: 24rpx;
+   /* width: 150rpx; */
+   padding:  0 20rpx;
+  height: 50rpx;
+  border-radius: 5rpx;
+  margin:0 20rpx 20rpx;
+  background: #dc0000;
+  color: #fff;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.gray{
+  color: #999;
+  background: #eee
+}
+
+.sub{
+  margin: 20rpx 40rpx;
+   background: #dc0000;
+  color: #fff;
+  border-radius: 15rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.msg {
+  position: fixed;
+  width: 60%;
+  background: #000;
+  opacity: 0.9;
+  color: #fff;
+  line-height: 60rpx;
+  align-items: center;
+  font-size: 30rpx;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  border-radius: 9rpx;
+  z-index: 3;
+  -webkit-animation: linear 2s msg forwards;
+  padding: 20rpx;
+}
+
+@keyframes msg {
+  from {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,48 @@
+<view class='wrap'>
+<view class='noCar' wx:if="{{noCar}}">
+  暂未发车
+</view>
+  <view class='listBox'>
+    <view wx:for="{{list}}" wx:key="{{index}}" data-index="{{index}}" bindtap='changeSelect' id="{{item.id}}">
+      <view class='date' wx:if="{{item.browseDate!=list[index-1].browseDate}}">{{item.browseDate}}</view>
+      <view class="list">
+        <view class='left {{item.select?"select":""}} {{edit?"":"lefts"}}'>
+          <image src='../../images/select-r.png'></image>
+        </view>
+        <image src='http://img.hx2cars.com/upload{{item.img}}' class='carimg'></image>
+        <view class="right">
+          <view class='title'>
+            {{item.title}}
+          </view>
+          <view class='klm'>
+            {{item.spDate ||"未"}}上牌 <text>{{item.kilometer}}万公里</text> {{item.areaName}} <text>车况{{conditions[item.condition]}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='detail {{edit?"":"bml"}}'>
+        <view class='dlist'>
+            <view class='key'>提交时间:</view>
+            <view class='value'>{{item.createTime}}</view>
+        </view>
+        <view class='dlist'>
+            <view class='key'>出售方式:</view>
+            <view class='value'>{{item.resaleWay}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部按钮 -->
+  <view class='bottom'>
+    <view class='allselect' bindtap='allselect' wx:if="{{edit}}">
+      <view class='left {{allselect?"select":""}}'>
+        <image src='../../images/select-r.png'></image>
+      </view>
+      全选
+    </view>
+    <view class='del' bindtap='del' wx:if="{{edit}}">删 除{{delNum?"("+delNum+")":""}}</view>
+    <view class='edit' bindtap='edit' wx:if="{{!edit}}">编辑</view>
+  </view>
+
+</view>
+
+<view class='msgs' wx:if="{{showmsg}}" bind:animationend="msgAnimationend">{{msg}}</view>

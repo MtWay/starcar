@@ -1,0 +1,319 @@
+/* pages/publish/publish.wxss */
+page{
+  background: #f6f6f6;
+}
+
+.imgWrap{
+background: #fff;
+padding-top:36rpx; 
+}
+
+.msg{
+  color: #333;
+  font-size: 27rpx;
+  line-height: 1;
+  margin: 0 0 55rpx;
+  padding: 0 34.2rpx;
+}
+.imgBox{
+  display: flex;
+  padding: 0 34.2rpx 27.8rpx;
+flex-wrap: wrap;
+}
+
+.imgList{
+  width: 149rpx;
+  height: 149rpx;
+  position: relative;
+  margin: 0 28rpx 28rpx 0;
+}
+
+.imgList:nth-of-type(4n){
+  margin-right: 0;
+}
+
+.btn-up{
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 28rpx;
+  background: #f6f6f6;
+  box-sizing: border-box;
+  border:1rpx solid #e1e1e1;
+  padding:26rpx; 
+  border-radius: 6rpx;
+
+}
+
+.center{
+  height: 100%;
+  border:2.4rpx dashed #cdcdcd;
+  border-radius: 6rpx;
+  position: relative;
+
+}
+
+.center::after,
+.center::before{ 
+  content:"" ;
+  width: 30rpx;
+  height: 3rpx;
+  background: #dcdcdc;
+  top: 50%;
+  left: 50%;
+  margin-left: -15rpx;
+  border-radius: 6rpx;
+  position: absolute;
+}
+
+.center::before{
+  -webkit-transform: rotate(90deg)
+}
+
+
+.imgList image{
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+
+.icon-close{
+  position: absolute;
+  width: 36rpx;
+  height: 36rpx;
+  right: 0;
+  top: 0;
+  border-bottom-left-radius: 6rpx;
+  border-top-right-radius: 6rpx;
+  background: rgba(0, 0, 0, 0.3);
+}
+.icon-close:after,
+.icon-close::before{
+  content:"" ;
+  width: 24rpx;
+  height: 4rpx;
+  background: #e5e3e4;
+  top: 16rpx;
+  left: 6rpx;
+  border-radius: 6rpx;
+  position: absolute;
+}
+.icon-close:after{
+  -webkit-transform: rotate(45deg);
+}
+
+.icon-close:before{
+  -webkit-transform: rotate(-45deg);
+}
+
+
+/* 用户信息 */
+.basic{
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 30rpx;
+  font-size: 24rpx;
+}
+
+.list{
+  font-size: 24rpx;
+  color: #333;
+  height: 90rpx;
+  padding: 0 30rpx;
+  line-height: 90rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #e1e1e1;
+display: flex;
+}
+
+.red{
+  color: #dc0000;
+}
+
+.c999{
+  color: #999;
+}
+
+.list .left{
+  min-width: 132rpx;
+  margin-right: 36rpx;
+}
+
+.list .right{
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.list input{
+  color: #333;
+  flex: 1;
+}
+
+.checkBox{
+  color: #333;
+  margin-right: 20rpx;
+   display: flex;
+  align-items: center;
+}
+
+.checkBox image{
+  width: 25.2rpx;
+  height: 25.2rpx;
+  margin-right: 10rpx;
+}
+
+radio{
+  height: 80rpx;
+  margin-left: 10rpx;
+  display: none
+}
+
+.radio view{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+
+.cur{color: #333}
+
+.radio image{
+  width: 25.2rpx;
+  height: 25.2rpx;
+  margin: 0 10rpx 0 0;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.submit{
+  height: 82rpx;
+  line-height: 82rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  background: #dc0000;
+  margin: 72rpx 30rpx ;
+  border-radius: 9rpx;
+}
+
+/* 地区弹框 */
+
+.model{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  background: #fff;
+  z-index: 2;
+  overflow-y:scroll; 
+  transition: 0.2s ease-out;
+}
+
+.show{
+  left: 0;
+}
+
+
+.cityList{
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-left: 25rpx;
+    color: #333;
+    background: #fff;
+    font-size: 24rpx;
+    border-bottom: 1rpx solid #e1e1e1;
+}
+
+.gray{
+  color: #999
+}
+
+/* 品牌 */
+.paixuitem{
+    height: 80rpx;
+    background-color: #ffffff;
+    border-bottom: 1rpx solid #e1e1e1;
+    color: #333333;
+    font-size: 12px;
+    align-items: center;
+    display: flex;
+    padding-left: 15px
+}
+
+.keyitem{
+     height: 25px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #e1e1e1;
+      color: #333333;
+  font-size: 11px;
+  align-items: center;
+    display: flex;
+   padding-left: 15px
+}
+
+/*品牌logo*/
+.logostyle{
+    width:25px;
+    height:25px;
+}
+
+.brandtitle{
+    margin-left: 12px;
+}
+
+.tuiguang{
+    font-size: 11px;
+    color: #999999;
+    position: absolute;
+    bottom: 17px;
+    right: 10px;
+    border:  1rpx solid #e1e1e1;
+    width:110rpx;
+    height: 38rpx;
+    border-radius: 5rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.msgs {
+  position: fixed;
+  width: 60%;
+  background: #000;
+  opacity: 0.9;
+  color: #fff;
+  line-height: 60rpx;
+  align-items: center;
+  font-size: 30rpx;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  border-radius: 9rpx;
+  z-index: 3;
+  -webkit-animation: linear 2s msg forwards;
+  padding: 20rpx;
+}
+
+@keyframes msg {
+  from {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+#myCanvas{
+  border: 1px solid #f00;
+  display: block ;
+  position: absolute;
+  left: -1000%;
+  top: 0;
+  -webkit-transform: scale(0.1)
+}

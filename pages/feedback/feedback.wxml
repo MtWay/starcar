@@ -1,0 +1,4 @@
+<!--pages/login/login.wxml-->
+<textarea placeholder='请输入您的意见和反馈' maxlength="1000" bindinput='getText'></textarea>
+<view class='btn' bindtap='submit'>提交</view>
+  <view class='msgs' wx:if="{{showmsg}}" bind:animationend="msgAnimationend">{{msg}}</view>

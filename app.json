@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/appoint/appoint",
+    "pages/myappoint/myappoint",
+    "pages/publish/publish",
+    "pages/carDetail/carDetail",
+    "pages/carlist/carlist",
+    "pages/minecar/minecar",
+    "pages/financial/financial",
+    "pages/login/login",
+    "pages/search/search",
+    "pages/onsell/onsell",
+    "pages/collect/collect",
+    "pages/browsing/browsing",
+    "pages/feedback/feedback",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "linght",
+    "navigationBarBackgroundColor": "#dc0000",
+    "navigationBarTitleText": "名车俱乐部",
+    "navigationBarTextStyle": "#fff",
+    "backgroundColorTop":"#dc0000"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#dc0000",
+    "list": [
+      {
+        "pagePath": "pages/carlist/carlist",
+        "text": "在线商城",
+        "iconPath": "images/shop2.png",
+        "selectedIconPath": "images/shop1.png"
+      },
+      {
+        "pagePath": "pages/minecar/minecar",
+        "text": "我的",
+        "iconPath": "images/my2.png",
+        "selectedIconPath": "images/my1.png"
+      }
+    ]
+  }
+}

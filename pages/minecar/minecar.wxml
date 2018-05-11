@@ -1,0 +1,81 @@
+<view class="top">
+  <view class='head'>
+    <image src='{{user.avatarUrl}}' mode="widthFix"></image>
+    <image src='../../images/gold.png' class='gold'></image>
+  </view>
+  <view class='wrap'>
+    <view class='name'>{{user.nickName}}</view>
+    <view class='vipbox'>
+      <text>会员等级:</text>
+      <image src='../../images/v1.png' wx:if="{{token}}"></image>
+    </view>
+  </view>
+</view>
+
+<view class='box notop'>
+  <view class='list' bindtap='tobrowsing'>
+    <image src='../../images/icon1.png' mode="widthFix"></image>
+    <view class='right'>
+      我的浏览
+    </view>
+  </view>
+</view>
+<view class='box '>
+  <view class='list' bindtap='tocollect'>
+    <image src='../../images/icon2.png' mode="widthFix"></image>
+    <view class='right'>
+      我的收藏
+    </view>
+  </view>
+  <view class='list' bindtap='tomyappoint'>
+    <image src='../../images/icon3.png' mode="widthFix"></image>
+    <view class='right'>
+      我的预约
+    </view>
+  </view>
+  <view class='list' bindtap='toonsell'>
+    <image src='../../images/icon4.png' mode="widthFix"></image>
+    <view class='right'>
+      在售车辆
+    </view>
+  </view>
+
+</view>
+
+<!-- <view class='box '>
+  <view class='list'>
+    <image src='../../images/icon5.png' mode="widthFix"></image>
+    <view class='right'>
+      我的会员服务
+    </view>
+  </view>
+  <view class='list'>
+    <image src='../../images/icon6.png' mode="widthFix"></image>
+    <view class='right'>
+      我的分销中心
+    </view>
+  </view>
+
+</view> -->
+
+<view class='box '>
+  <view class='list ' bindtap='callphone'>
+    <image src='../../images/icon7.png' mode="widthFix"></image>
+    <view class='right'>
+      联系客服
+    </view>
+  </view>
+  <view class='list' bindtap='tofeedback'>
+    <image src='../../images/icon8.png' mode="widthFix"></image>
+    <view class='right'>
+      建议反馈
+    </view>
+  </view>
+  <!-- <view class='list' bindtap='clear'>
+    <image src='../../images/icon8.png' mode="widthFix"></image>
+    <view class='right'>
+      清理数据
+    </view>
+  </view> -->
+
+</view>

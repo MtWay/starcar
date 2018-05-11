@@ -1,0 +1,140 @@
+<view class="imgWrap">
+  <view class="msg">
+    请先上传车辆图片，最多上传16张
+  </view>
+  <view class="imgBox">
+
+
+    <view class="imgList" wx:for="{{imgurls}}" wx:key="{{index}}">
+      <view class="icon-close" id='{{index}}' bindtap='removeImg'></view>
+      <image src="http://img.hx2cars.com/upload/{{item}}" data-src="http://img.hx2cars.com/upload/{{item}}" bindtap='showImg'></image>
+    </view>
+
+    <view class="btn-up" bindtap="uodate">
+      <view class='cn=center'>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+
+<view class='c999 basic'>基本信息</view>
+<view class='list'>
+  <view class='left'>车辆归属地<text class='red'>*</text></view>
+  <view class='right {{city ? "" :"c999"}} ' bindtap='cityonlick'>{{city || "请您选择车辆归属地区"}}</view>
+</view>
+<view class='list'>
+  <view class='left'>品牌<text class='red'>*</text></view>
+  <view class='right {{brand ? "" :"c999"}}' bindtap='brandonclick'>{{brand || "请您选择车型"}}</view>
+</view>
+<view class='list'>
+  <view class='left'>初次上牌<text class='red'>*</text></view>
+  <view class='right {{date ? "" :"c999"}}'>
+  <picker mode="date" value="{{date}}"  bindchange="bindDateChange" fields="month">
+    <view class="picker">
+      {{date || "请您选择初次上牌时间"}}
+    </view>
+  </picker>
+    <view class='isSp checkBox' bindtap='changeTag' id='tag'>
+
+      <image src='../../images/select.png' wx:if="{{tag}}"></image>
+      <image src='../../images/select1.png' wx:else></image>
+      <view class='{{tag?"":"gray"}}'>未上牌</view>
+      
+    </view>
+  </view>
+</view>
+<view class='list'>
+  <view class='left'>行驶里程<text class='red'>*</text></view>
+  <view class='right c999'>
+    <input type='digit' placeholder='请您输入行驶里程' bindinput='saveIuput'  data-key="mileage"/>
+    <text>万公里</text>
+  </view>
+</view>
+
+<view class='list'>
+  <view class='left'>车况<text class='red'>*</text></view>
+  <view class='right c999'>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{condition}}" wx:key="{{index}}">
+        <radio value="{{index}}" checked="{{index==conditionSelect}}" name="" ></radio>
+        <image src='../../images/select.png' wx:if="{{index==conditionSelect}}"></image>
+      <image src='../../images/select1.png' wx:else></image>
+      <view class='{{index==conditionSelect ?"cur":""}}'>{{item.value}}</view>
+      </label>
+    </radio-group>
+  </view>
+</view>
+
+<view class='list'>
+  <view class='left'>卖车方式<text class='red'>*</text></view>
+  <view class='right c999'>
+    <radio-group class="radio-group" bindchange="radioChangeSell">
+      <label class="radio" wx:for="{{sells}}" wx:key="{{index}}">
+        <radio value="{{index}}" checked="{{index==sell}}" name="" />
+        <image src='../../images/select.png' wx:if="{{index==sell}}"></image>
+      <image src='../../images/select1.png' wx:else></image>
+      <view class='{{index==sell ?"cur":""}}'>{{item.value}}</view>
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='list'>
+  <view class='left'>联系方式<text class='red'>*</text></view>
+  <view class='right c999'>
+    <input type='number' placeholder='请您输入联系方式' bindinput='saveIuput'  data-key="phone"/>
+  </view>
+</view>
+
+<view class='submit' bindtap='submit'>提交</view>
+
+<!-- 地区选择 -->
+<view class='model {{showcity || showcitysecond ? "show" : ""}}'>
+  <view wx:if="{{showcity}}">
+    <!-- <view class='cityList'>全国</view> -->
+    <view wx:for="{{cityArr}}" wx:key="{{index}}" class='cityList' bindtap='cityItemclick' id='{{item.area_name}}' data-alphaBeta="{{item.area_code}}">{{item.area_name}}</view>
+  </view>
+  <view wx:if="{{showcitysecond}}">
+    <view class='cityList' bindtap='citySecondItemclick' id='全省'>全省</view>
+    <view wx:for="{{citySecondArr}}" wx:key="{{index}}" class='cityList' bindtap='citySecondItemclick' id='{{item.area_name}}' data-alphaBeta="{{item.area_code}}">{{item.area_name}}</view>
+  </view>
+</view>
+
+<view class='model {{showbrand || showbrandsecond ? "show" : ""}}'>
+
+  <!--点击品牌后出现的选择界面-->
+  <view wx:key="{{index}}" wx:for="{{keymap}}" wx:if="{{showbrand}}" wx:for-item="keyname">
+
+    <view class="keyitem">
+      {{keyname}}
+    </view>
+    <view wx:key="{{index}}" wx:for="{{resultmap}}" wx:for-item="everyone" wx:if="{{keyname == everyone.letter}}">
+
+      <view class="paixuitem" catchtap="onbranditemclick" id="{{everyone.title}}" data-alphaBeta="{{everyone.id}}">
+        <image catchtap="" id="{{everyone.title}}" data-alphaBeta="{{everyone.id}}" binderror="binderrorimg" data-errorimg="{{index}}" class="logostyle" mode="aspectFit" src="{{everyone.mobileLogo}}"></image>
+        <view class="brandtitle" catchtap="" id="{{everyone.title}}" data-alphaBeta="{{everyone.id}}">
+          {{everyone.title}}
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+
+  <!--点击一级品牌后出现的界面-->
+  <view wx:if="{{showbrandsecond}}">
+
+    <view wx:key="{{index}}" wx:for="{{resultmapSecond}}" wx:for-item="everyone">
+
+      <view class="paixuitem" bindtap="onbranditemsecondclick" id="{{everyone.title}}" data-alphaBeta="{{everyone.id}}">
+        {{everyone.title}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--提示信息  -->
+<view class='msgs' wx:if="{{showmsg}}" bind:animationend="msgAnimationend">{{msg}}</view>
+
+<canvas canvas-id="myCanvas" id="myCanvas" style="width:{{cw}}px;height:{{ch}}px; "></canvas>

@@ -1,0 +1,66 @@
+
+<view class="wrap">
+  <view class='list'>
+    <view class='left'>预约方式</view>
+      <view class='btn {{way ? "select":"" }}' bindtap='changeWay' data-way="1">门店预约</view>
+      <view class='line'></view>
+      <view class='btn {{way ? "":"select" }}' bindtap='changeWay' data-way="0">送车上门</view>
+
+  </view>
+  <view class='list' wx:if='{{!way}}'>
+    <view class='left'>详细地址</view>
+    <view class='right'>
+      <input type='text' placeholder='请输入您的详细地址'  bindinput='addressInput' value="{{address}}"></input>
+      <view  class='imgBox' bindtap='showMap'>
+        <image src='../../images/add.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='list' wx:if='{{way}}'>
+    <view class='left'>预约门店</view>
+    <view class='right'>
+      <view class='{{shop?"":"gray"}} rightArrow' bindtap='showShopList'>{{shop || "请选择预约门店" }}</view>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='left'>预约时间</view>
+    <view class='right'>
+    <picker mode="date" value="{{date}}"  bindchange="bindDateChange">
+    <view class="picker {{date?'':'gray' }} rightArrow">
+      {{date || "请选择您的预约时间"}}
+    </view>
+  </picker>
+      <!-- <view class='gray rightArrow'>请选择您的预约时间</view> -->
+    </view>
+  </view>
+  <view class='list'>
+    <view class='left'>联系方式</view>
+    <view class='right'>
+      <input type='number' placeholder='请输入您的联系方式' bindinput='phoneInput'></input>
+    </view>
+  </view>
+  <view class='sub' bindtap='submit'>提交</view>
+</view>
+
+<view class='model {{shopModel?"show":""}}' >
+  <view class='title'>请选择门店</view>
+  <view class='li' wx:for="{{shops}}" wx:key="{{index}}" bindtap='selectShop' data-index='{{index}}'>
+    {{item.value}}
+  </view>
+</view>
+
+
+
+<view class='model {{mapModel?"show":""}} mapModel' >
+<map id="myMap" scale="14" bindcontroltap="controltap" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" bindmarkertap="markertap"controls="{{controls}}"  bindregionchange="getCenterLocation"  show-location  />
+  <view class='bottom'>
+    <view class='address'>{{address}}</view>
+    <view class='btn' bindtap='subAdd'>确定</view>
+  </view>
+
+ <!-- <button type="primary" bindtap="getCenterLocation">获取位置</button>
+<button type="primary" bindtap="moveToLocation">移动位置</button>
+<button type="primary" bindtap="translateMarker">移动标注</button>
+<button type="primary" bindtap="includePoints">缩放视野展示所有经纬度</button>  -->
+</view>
+<view class='msg' wx:if="{{showmsg}}" bind:animationend="msgAnimationend">{{msg}}</view>

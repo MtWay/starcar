@@ -1,0 +1,98 @@
+page {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bg{
+  height: 100%;
+  background: #000;
+  
+}
+
+.box {
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  top: 5%;
+  width: 306.6rpx;
+  left: 50%;
+  margin-left: -153.3rpx;
+  z-index: 2;
+}
+.logo image{
+  width: 100%;
+}
+
+.banner image{
+  width: 100%;
+}
+
+.banner {
+  width: 100%;
+  position: absolute;
+  top:0;
+  /* top: 50%; */
+  /* -webkit-transform: translateY(-50%); */
+  /* -webkit-transform: translateY(-50%); */
+  /* -webkit-animation: name 2s linear forwards; */
+  /* -webkit-transform-origin: top; */
+}
+
+/* @-webkit-keyframes name {
+  form {
+    -webkit-transform: scale(0) ;
+  }
+
+  to {
+    -webkit-transform: scale(1.1);
+  }
+} */
+
+.btnBox {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 81rpx;
+  position: absolute;
+  bottom: 81rpx;
+  z-index: 3;
+  color: #fff;
+}
+
+.btn {
+  text-align: center;
+  font-size: 25.8rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  border-radius: 9rpx;
+  /* opacity: 0; */
+  /* -webkit-transform: translateY(50px); */
+}
+
+.login {
+  background: #dc0000;
+  /* -webkit-animation: show 0.5s 1s ease-out forwards; */
+}
+
+.tolist {
+  border: 1px solid #fff;
+  margin-top: 39rpx;
+  /* -webkit-animation: show 0.5s 1.2s ease-out forwards; */
+}
+
+/* @-webkit-keyframes show {
+  form {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+} */

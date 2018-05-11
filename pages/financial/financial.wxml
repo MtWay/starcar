@@ -1,0 +1,69 @@
+<view class='wrap'>
+  <view class='scroll'>
+  <view class="head">
+    第一站名车推出 <text>“综合授信服务”</text>让您“0”押金轻松入会，享受俱乐部举办的各种自驾活动、高端晚宴、红酒品鉴、高端人群社交酒会等等。
+</view>
+<view class='section'>
+<view class='title'>综合授信服务种类介绍</view>
+<view class='table'>
+    <view class='tr'>
+      <view class='tdleft'>特好贷</view>
+      <view class='tdright'>产品成熟，各个环节比较流畅 </view>
+    </view>
+    <view class='tr'>
+      <view class='tdleft'>好易贷</view>
+      <view class='tdright'>单笔最高800万住宅及70年公寓可做 </view>
+    </view>
+    <view class='tr'>
+      <view class='tdleft'>极速贷</view>
+      <view class='tdright'>单笔可申请2000万元不限定套数，可做当期 预期，有执行记录均可做 （需提供结案证明以及撤销网上诉讼） </view>
+    </view>
+  </view>
+</view>
+<view class='section'>
+  <view class='title'>服务流程  </view>
+  <view class='serveWrap'>
+    <view class='serveList'>
+    <image src='../../images/gicon1.png' mode="widthFix"></image>
+    </view>
+    <image src='../../images/next.png' mode="widthFix" class='lianjian'></image>
+    <view class='serveList'>
+    <image src='../../images/gicon2.png' mode="widthFix"></image>
+    </view>
+    <image src='../../images/next.png' mode="widthFix" class='lianjian'></image>
+    <view class='serveList'>
+    <image src='../../images/gicon3.png' mode="widthFix"></image>
+    </view>
+    <image src='../../images/next.png' mode="widthFix" class='lianjian'></image>
+    <view class='serveList'>
+    <image src='../../images/gicon4.png' mode="widthFix"></image>
+    </view>
+  </view>
+  <view class='serveWrap serveWraps'>
+        <text>提交</text>
+        <text>下户</text>
+        <text>下户</text>
+        <text>评估放款</text>
+    </view>
+</view>
+<view class='section'>
+<view class='title'>服务优势</view>
+<view class='yslist'>
+  <ul class="">
+    <li>息费最低0.88元/月</li>
+    <li>最快支持当天放款</li>
+    <li>产品成熟手续简便</li>
+    <li>服务体系完善</li>
+    <li>透明化操作</li>
+    <li>审批快、条件款</li>
+    <li>操作简单不繁琐</li>
+    <li class="opa0"> 1</li>
+  </ul>
+</view>
+</view>
+  </view>
+  <view class='btn' bindtap='call'>
+  咨询电话
+</view>
+</view>
+

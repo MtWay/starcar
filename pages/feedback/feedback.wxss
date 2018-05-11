@@ -1,0 +1,55 @@
+/* pages/login/login.wxss */
+page{
+  background: #f1f1f1;
+}
+textarea{
+  margin: 20rpx 0 50rpx;
+  padding: 20rpx;
+  background: #fff;
+  width: 100%;
+  font-size: 26rpx;
+}
+
+.btn{
+  margin: 0 20rpx;
+  background: #dc0000;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  text-align: center
+}
+
+
+.msgs {
+  position: fixed;
+  width: 60%;
+  background: #000;
+  opacity: 0.9;
+  color: #fff;
+  line-height: 60rpx;
+  align-items: center;
+  font-size: 30rpx;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  border-radius: 9rpx;
+  z-index: 3;
+  -webkit-animation: linear 2s msg forwards;
+  padding: 20rpx;
+}
+
+@keyframes msg {
+  from {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

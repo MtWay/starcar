@@ -1,0 +1,210 @@
+<view class="container">
+
+  <!--搜索框-->
+  <view class="searchType">
+    <!--搜索框-->
+    <view class="inputStyle" bindtap="toSearch">
+      <image src="../../images/ss.png" class="sousuoimg" mode="aspectFill" />
+      <view class="searchText">
+        请输入搜索内容
+      </view>
+    </view>
+  </view>
+  <view class="topstyle">
+    <!--排序-->
+    <view class="itemSelectType {{showorder?'select':''}}" bindtap="ordeclick">
+      {{order}}
+      <!-- <image src="../../images/cityarrow.png" class="triangle" mode="aspectFill"></image> -->
+      <view class='triangle'></view>
+
+      <view class="line"></view>
+
+    </view>
+
+    <!--品牌-->
+    <view class="itemSelectType {{showbrand?'select':''}}" bindtap="brandonclick">
+      {{brand}}
+      <view class='triangle'></view>
+      <view class="line"></view>
+    </view>
+    <!--价格-->
+    <view class="itemSelectType {{showprice?'select':''}}" bindtap="priceclick">
+      {{price}}
+      <view class='triangle'></view>
+      <view class="line"></view>
+    </view>
+    <!--筛选-->
+    <view class="itemSelectType {{showother ||  showother3?'select':''}}" bindtap="otherclick">
+      {{other}}
+      <view class='triangle'></view>
+
+    </view>
+  </view>
+
+  <scroll-view bindscrolltoupper="refresh" bindscrolltolower="loadmore" scroll-y="true"  class='model {{!showlist?"showmodel":""}}'>
+
+
+
+    <!--点击排序后出现的选择界面-->
+    <view wx:key="{{index}}" wx:for="{{orderArr}}" wx:if="{{showorder}}">
+      <view class="paixuitem" bindtap="ordeItemclick" id="{{index}}">
+        {{item}}
+      </view>
+    </view>
+
+    <!--点击价格后出现的选择界面-->
+    <view wx:key="{{index}}" wx:for="{{priceArr}}" wx:if="{{showprice}}">
+      <view class="paixuitem" bindtap="priceItemclick" id="{{index}}">
+        {{item}}
+      </view>
+    </view>
+
+    <!--点击筛选后出现的选择界面-->
+    <view wx:key="{{index}}" wx:for="{{othermap}}" wx:if="{{showother}}">
+      <view class="paixuitem " bindtap="otherItemclick" id="{{index}}">
+        {{item.name}}
+        <view class='otherRight'>
+          {{item.value || "不限"}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 筛选底部按钮 -->
+    <view  wx:if="{{showother}}" >
+      <view class='btnBox'>
+       <view class='btn raset' bindtap="rasetother">重置</view>
+      <view class='btn' bindtap="subother">确定</view>
+      </view>
+    </view>
+
+    <!-- 筛选二级 -->
+    <!-- 自定年份 -->
+    <view wx:if="{{thisother == 1 && showother3}}" class='custom'>
+      自定义
+      <input value='0' bindinput='firstyear'  value='{{firstyear}}'/>-
+      <input value='0' bindinput='lastyear' value='{{lastyear}}'/>年
+      <view class='confirm' bindtap="setyear">确定</view>
+    </view>
+    <!-- 自定里程 -->
+    <view wx:if="{{thisother == 2 && showother3}}" class='custom'>
+      自定义
+      <input value='0' bindinput='firstmileage'  value='{{firstmileage}}' />-
+      <input value='0' bindinput='lastmileage'   value='{{lastmileage}}'/>万公里
+      <view class='confirm' bindtap="setmileage">确定</view>
+    </view>
+    <view wx:key="{{index}}" wx:for="{{other3}}" wx:if="{{showother3}}">
+      <view class="paixuitem" bindtap="otherItemSonclick" id="{{index}}" wx:if="{{!item==''}}">
+        {{item}}
+      </view>
+    </view>
+    <view wx:if="{{thisother == 0 && showother3}}" class='paixuitem bgray'>
+       个人车源
+      </view>
+
+    <!--点击品牌后出现的选择界面-->
+    <view wx:key="{{index}}" wx:for="{{keymap}}" wx:if="{{showbrand}}" wx:for-item="keyname">
+      <view class="paixuitem" wx:if="{{index == 0}}" bindtap="allbrand">
+        不限品牌
+      </view>
+      <view class="keyitem">
+        {{keyname}}
+      </view>
+      <view wx:key="{{index}}" wx:for="{{resultmap}}" wx:for-item="everyone" wx:if="{{keyname == everyone.letter}}">
+
+        <view class="paixuitem" catchtap="onbranditemclick" id="{{everyone.title}}" data-alphaBeta="{{everyone.id}}">
+      
+          <view class="brandtitle" catchtap="onbranditemclick" id="{{everyone.title}}" data-alphaBeta="{{everyone.id}}">
+            {{everyone.title}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+    <!--点击一级品牌后出现的界面-->
+    <view wx:if="{{showbrandsecond}}">
+      <view class="paixuitem" bindtap="allbrandsecond">
+        不限品牌
+      </view>
+
+      <view wx:key="{{index}}" wx:for="{{resultmapSecond}}" wx:for-item="everyone">
+
+        <view class="paixuitem" bindtap="onbranditemsecondclick" id="{{everyone.title}}" data-alphaBeta="{{everyone.id}}">
+          {{everyone.title}}
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <scroll-view bindscrolltoupper="refresh" bindscrolltolower="loadmore" scroll-y="true" class='listBox {{!showlist?"hide":""}}'>
+
+  <view class='publishcar' bindtap="publishcar">
+    <image src='../../images/icon-n2.png' mode="widthFix"></image>
+    <text>卖车</text>
+  </view>
+    <view wx:if="{{showlist}}">
+      <!--刷新的动画-->
+      <view class="tips" wx:if="{{refresh}}">
+
+        <image src="../../images/loading.gif" mode="aspectFill" />
+        <view class="loadmoreText">刷新中...</view>
+
+      </view>
+
+      <view wx:key="{{index}}" wx:for="{{carList}}">
+        <view class="itemcontainer" bindtap="todetail" id="{{item.id}}">
+
+          <view class="itemBrandTitle">
+            {{item.title}}{{item.id}}
+          </view>
+          <view class="itemLeftStyle">
+            <image class='self' src='../../images/zy.png'></image>
+            <image class="itemImageStyle" mode="widthFix" src="http://img.hx2cars.com/upload{{item.photo}}" binderror="binderrorimgmain" data-errorimg="{{index}}"></image>
+
+            <image class="guoqi" wx:if="{{item.state == 1}}" mode="aspectFit" src="../../images/yiguoqi.png"></image>
+            <view class="pricestyle" wx:if="{{item.price == 0.0}}">
+              面议
+            </view>
+            <view class="pricestyle" wx:elif="{{item.price == 0}}">面议 </view>
+            <view class="pricestyle" wx:elif="{{item.price == '面议'}}"> 面议 </view>
+            <view class="pricestyle" wx:else> {{item.price}}万 </view>
+            <view wx:if="{{item.state == 1}}" class="guoqitext">已过期</view>
+          </view>
+          <!--右边的数据-->
+          <view class="itemRightStyle">
+            <!--品牌标题-->
+
+            <!--地区和公里数-->
+            <view class="areaAndMileage">
+              {{item.useYear || 0}} / {{item.journey}}万公里 
+              <view class='areaRight'>{{item.location || "北京"}}</view>
+            </view>
+
+            <!--价格-->
+
+
+            <!-- <view wx:if="{{item.type == 1}}" class="tuiguang">推广车辆</view> -->
+
+          </view>
+        </view>
+      </view>
+
+      <!--加载更多的动画-->
+      <view wx:if="{{!refresh}}">
+        <view class="tips" wx:if="{{hasMore}}">
+
+          <image src="../../images/loading.gif" mode="aspectFill" />
+          <view class="loadmoreText">加载中...</view>
+        </view>
+
+
+      </view>
+    </view>
+
+
+
+  </scroll-view>
+
+</view>
+<!-- <loading  hidden="{{loading}}">加载中...</loading> -->
+  <view class='msgs' wx:if="{{showmsg}}" bind:animationend="msgAnimationend">{{msg}}</view>
